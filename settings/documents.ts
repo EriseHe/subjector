@@ -4,19 +4,19 @@ export const Documents: Paths[] = [
   {
     heading: "Introduction",
     title: "Lacanian Psychoanalysis",
-    href: "/lacanian-psychoanalysis",
+    href: "/Lacanian Psychoanalysis",
     items: [
       {
         title: "Reframe",
-        href: "/reframe",
+        href: "/Reframe",
       },
       {
         title: "Mirror Stage",
-        href: "/mirror-stage",
+        href: "/Mirror Stage",
       },
       {
         title: "Desire",
-        href: "/desire",
+        href: "/Desire",
       },
     ],
   },
@@ -25,16 +25,16 @@ export const Documents: Paths[] = [
   },
   {
     title: "Geometric Deep Learning",
-    href: "/geometric-deep-learning",
+    href: "/Geometric Deep Learning",
     heading: "Architecture",
   },
   {
     title: "Subjector",
-    href: "/subjector",
+    href: "/Subjector",
     items: [
       {
         title: "Design",
-        href: "/design",
+        href: "/Design",
       },
     ],
   },
