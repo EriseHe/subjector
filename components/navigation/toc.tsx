@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import clsx from "clsx"
+import Link from "next/link"
 
 import { ScrollArea } from "@/components/ui/scroll-area"
 
@@ -38,11 +38,15 @@ export default function Toc({ tocs }: TocProps) {
               href={href}
               scroll={false}
               onClick={(e) => handleSmoothScroll(e, href)}
-              className={clsx({
-                "pl-0": level == 2,
-                "pl-3": level == 3,
-                "pl-6": level == 4,
-              })}
+              className={clsx(
+                "block break-words hyphens-auto leading-relaxed hover:text-neutral-950 dark:hover:text-neutral-100 transition-colors duration-200",
+                {
+                  "pl-0": level == 2,
+                  "pl-3": level == 3,
+                  "pl-6": level == 4,
+                }
+              )}
+              style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
             >
               {text}
             </Link>
