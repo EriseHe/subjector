@@ -3,20 +3,20 @@ import { Paths } from "@/lib/pageroutes"
 export const Documents: Paths[] = [
   {
     heading: "Introduction",
-    title: "Basic Setup",
-    href: "/basic-setup",
+    title: "Lacanian Psychoanalysis",
+    href: "/lacanian-psychoanalysis",
     items: [
       {
-        title: "Installation",
-        href: "/installation",
+        title: "Reframe",
+        href: "/reframe",
       },
       {
-        title: "Setup",
-        href: "/setup",
+        title: "Mirror Stage",
+        href: "/mirror-stage",
       },
       {
-        title: "Changelog",
-        href: "/changelog",
+        title: "Desire",
+        href: "/desire",
       },
     ],
   },
@@ -24,76 +24,21 @@ export const Documents: Paths[] = [
     spacer: true,
   },
   {
-    title: "Navigation",
-    href: "/navigation",
-    heading: "Documents",
+    title: "Geometric Deep Learning",
+    href: "/geometric-deep-learning",
+    heading: "Architecture",
   },
   {
-    title: "Structure",
-    href: "/structure",
+    title: "Subjector",
+    href: "/subjector",
     items: [
       {
-        title: "Deep",
-        href: "/deep",
-        items: [
-          {
-            title: "Deeper",
-            href: "/deeper",
-            items: [
-              {
-                title: "Even deeper",
-                href: "/even-deeper",
-              },
-            ],
-          },
-        ],
+        title: "Design",
+        href: "/design",
       },
     ],
   },
   {
     spacer: true,
-  },
-  {
-    title: "Markdown",
-    href: "/markdown",
-    heading: "Components",
-    items: [
-      {
-        title: "Cards",
-        href: "/cards",
-      },
-      {
-        title: "Diagrams",
-        href: "/diagrams",
-      },
-      {
-        title: "Filetree",
-        href: "/filetree",
-      },
-      {
-        title: "Lists",
-        href: "/lists",
-      },
-      {
-        title: "Maths",
-        href: "/maths",
-      },
-      {
-        title: "Notes",
-        href: "/notes",
-      },
-      {
-        title: "Steps",
-        href: "/steps",
-      },
-      {
-        title: "Table",
-        href: "/table",
-      },
-      {
-        title: "Tabs",
-        href: "/tabs",
-      },
-    ],
   },
 ]
