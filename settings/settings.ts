@@ -1,4 +1,4 @@
-export const url = "https://rubix-documents.vercel.app"
+export const url = "https://subjector.vercel.app"
 export const siteicon = "/icon.png"
 
 export const gtm = "GTM-XXXXXXX"
@@ -18,8 +18,8 @@ export const urlimage = "/images/og-image.png"
 export const imagealt = "Rubix Studios Documentation"
 export const twitterhandle = "@RubixStudios"
 
-export const companyname = "Rubix Studios"
-export const companylink = "https://rubixstudios.com.au"
+export const companyname = "Erise He"
+export const companylink = "https://erisehe.github.io"
 
 export const branding = true
 export const rightsidebar = true
