@@ -4,9 +4,9 @@ export const siteicon = "/icon.png"
 export const gtm = "GTM-XXXXXXX"
 export const gtmconnected = true
 
-export const sitename = "Documents"
+export const sitename = "Subjector"
 export const description =
-  "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements."
+  "A collection of notes on Lacanian psychoanalysis, geometric deep learning, and Subjector, an AI prototype framework based on artificial lack-driven desire"
 export const keywords = [
   "Next.js",
   "documentation",
