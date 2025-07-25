@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "file": "contents/docs/Lacanian Psychoanalysis/index.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3. Subject"
+              "title": "index"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "file": "contents/docs/Lacanian Psychoanalysis/index.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 3. Subject"
+              "title": "Backlinks for index"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "file": "contents/docs/Lacanian Psychoanalysis/index.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 3. Subject"
+              "title": "Outgoing links from index"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "file": "contents/docs/Lacanian Psychoanalysis/index.mdx",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 3. Subject"
+              "title": "Outline of index"
             }
           }
         ]
@@ -168,10 +168,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "82f2619300c04627",
+  "active": "ce61d6ca169e2a29",
   "lastOpenFiles": [
-    "contents/docs/Lacanian Psychoanalysis/index.mdx",
+    "contents/docs/Lacanian Psychoanalysis/reframe/draft.md",
     "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+    "contents/docs/Lacanian Psychoanalysis/desire/index.mdx",
+    "contents/docs/Lacanian Psychoanalysis/mirror-stage/index.mdx",
+    "contents/docs/Lacanian Psychoanalysis/reframe/index.mdx",
+    "contents/docs/Lacanian Psychoanalysis/desire",
+    "contents/docs/Lacanian Psychoanalysis/mirror-stage",
+    "contents/docs/Lacanian Psychoanalysis/reframe",
+    "contents/docs/Subjector/design/index.mdx",
+    "contents/docs/Subjector/design",
+    "contents/docs/Subjector/index.mdx",
+    "contents/docs/Geometric Deep Learning/index.mdx",
     "contents/docs/Lacanian Psychoanalysis/0. draft.md",
     "contents/docs/Lacanian Psychoanalysis/0.Reframing Lacanian Topology as Computational Architecture.md"
   ]

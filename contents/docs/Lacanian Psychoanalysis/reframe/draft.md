@@ -41,4 +41,3 @@ Therefore, this collection serves as a **prerequisite** for transforming Lacanâ€
 
 
 
-
