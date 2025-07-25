@@ -1,0 +1,178 @@
+{
+  "main": {
+    "id": "5dd83984425990d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "7b408ed634123f89",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "82f2619300c04627",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3. Subject"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "42a4c106b25c1769",
+    "type": "split",
+    "children": [
+      {
+        "id": "0237e0e8775c5c2b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ce61d6ca169e2a29",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9e007701587502a1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "49e44150bd754949",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7968cae204f6e906",
+    "type": "split",
+    "children": [
+      {
+        "id": "67248eab0de4a06f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5cf10cbca9350848",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 3. Subject"
+            }
+          },
+          {
+            "id": "6debf122be36194a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 3. Subject"
+            }
+          },
+          {
+            "id": "2188c2900fb5407e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "4bd3aa35db29afbd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 3. Subject"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "82f2619300c04627",
+  "lastOpenFiles": [
+    "contents/docs/Lacanian Psychoanalysis/index.mdx",
+    "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
+    "contents/docs/Lacanian Psychoanalysis/0. draft.md",
+    "contents/docs/Lacanian Psychoanalysis/0.Reframing Lacanian Topology as Computational Architecture.md"
+  ]
+}
