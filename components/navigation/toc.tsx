@@ -28,7 +28,7 @@ export default function Toc({ tocs }: TocProps) {
   }
 
   return (
-    <div className="flex w-full flex-col gap-3 pl-2">
+    <div className="flex w-full max-w-[230px] flex-col gap-3 pl-2">
       <h3 className="text-sm font-semibold">On this page</h3>
       <ScrollArea className="pt-0.5 pb-4">
         <div className="flex flex-col gap-2.5 text-sm text-neutral-800 dark:text-neutral-300/85">
@@ -39,16 +39,20 @@ export default function Toc({ tocs }: TocProps) {
               scroll={false}
               onClick={(e) => handleSmoothScroll(e, href)}
               className={clsx(
-                "block break-words hyphens-auto leading-relaxed hover:text-neutral-950 dark:hover:text-neutral-100 transition-colors duration-200",
+                "block break-words hyphens-auto leading-relaxed hover:text-neutral-950 dark:hover:text-neutral-100 transition-colors duration-200 max-w-full overflow-hidden",
                 {
                   "pl-0": level == 2,
-                  "pl-3": level == 3,
-                  "pl-6": level == 4,
+                  "pl-3 max-w-[190px]": level == 3,
+                  "pl-6 max-w-[170px]": level == 4,
                 }
               )}
-              style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
+              style={{ 
+                wordBreak: "break-word", 
+                overflowWrap: "anywhere",
+                lineBreak: "anywhere"
+              }}
             >
-              {text}
+              <span className="inline-block w-full">{text}</span>
             </Link>
           ))}
         </div>
