@@ -105,13 +105,33 @@ export async function getDocument(slug: string) {
 
 const headingsRegex = /^(#{2,4})\s(.+)$/gm
 
+// Function to clean markdown formatting from text
+function cleanMarkdownText(text: string): string {
+  return text
+    .trim()
+    // Remove bold (**text** and __text__)
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/__(.*?)__/g, '$1')
+    // Remove italic (*text* and _text_)
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/_(.*?)_/g, '$1')
+    // Remove inline code (`text`)
+    .replace(/`(.*?)`/g, '$1')
+    // Remove strikethrough (~~text~~)
+    .replace(/~~(.*?)~~/g, '$1')
+    // Remove any remaining markdown symbols
+    .replace(/[*_`~]/g, '')
+    .trim()
+}
+
 export async function getTable(
   slug: string
-): Promise<Array<{ level: number; text: string; href: string }>> {
+): Promise<Array<{ level: number; text: string; href: string; cleanText: string }>> {
   const extractedHeadings: Array<{
     level: number
     text: string
     href: string
+    cleanText: string
   }> = []
   let rawMdx = ""
 
@@ -150,10 +170,12 @@ export async function getTable(
   while ((match = headingsRegex.exec(rawMdx)) !== null) {
     const level = match[1].length
     const text = match[2].trim()
+    const cleanText = cleanMarkdownText(text)
     extractedHeadings.push({
       level: level,
-      text: text,
-      href: `#${innerslug(text)}`,
+      text: text, // Keep original for href generation
+      href: `#${innerslug(cleanText)}`, // Use clean text for URL
+      cleanText: cleanText, // Clean text for display
     })
   }
 
