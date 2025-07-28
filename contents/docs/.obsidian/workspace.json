@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lacanian-psychoanalysis/reframe/index.mdx",
+                "file": "geometric-deep-learning/index.mdx",
                 "mode": "source",
                 "source": false
               },
@@ -167,8 +167,9 @@
   },
   "active": "3b8898fcb19761c2",
   "lastOpenFiles": [
-    "lacanian-psychoanalysis/reframe/draft.md",
     "lacanian-psychoanalysis/reframe/index.mdx",
+    "lacanian-psychoanalysis/index.mdx",
+    "lacanian-psychoanalysis/reframe/draft.md",
     "lacanian-psychoanalysis/mirror-stage/index.mdx",
     "geometric-deep-learning/index.mdx"
   ]

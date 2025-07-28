@@ -5,18 +5,185 @@ keywords: geometric deep learning, machine learning, neural networks
 weight: "1"
 ---
 
-# Geometric Deep Learning
+# Geometric Deep Learning: Study Notes
 
-## Procedure of Machine Learning
+These notes summaries the **Geometric Deep Learning** (GDL) paper. The aim is to expose the reader to key mathematical and geometrical concepts underlying modern deep learning architectures and to explain machine‑learning (ML) jargon that appears throughout the text. Citations of the original paper are included in square brackets.
 
-1. **Data Collection**: Gathering relevant datasets
-2. **Data Preprocessing**: Cleaning and preparing data
-3. **Model Selection**: Choosing appropriate algorithms
-4. **Training**: Fitting the model to data
-5. **Evaluation**: Testing model performance
-6. **Deployment**: Implementing the trained model
-7. **Monitoring**: Ongoing performance assessment
+## 1. Introduction and Motivation
 
-## Key Concepts
+Modern deep learning success owes partly to the use of _inductive biases_ that exploit structure in data. Classical neural networks treating inputs as unstructured vectors fall victim to the _curse of dimensionality_—when the dimension $d$ is large, the number of parameters grows exponentially and generalisation becomes hard. The GDL framework argues that **geometry** provides a principled way to impose structure through **symmetry** (invariance and equivariance) and **scale separation**, thereby building efficient models that generalise. The authors propose a _blueprint_ that unifies convolutional networks, graph neural networks and other architectures.
 
-This section covers the fundamental procedures and methodologies in machine learning, with a focus on geometric approaches to deep learning architectures. 
+### 1.1 Signals and Function Spaces
+
+A **domain** (also called a _base space_) is denoted $\Omega$, with elements $u \in \Omega. A **signal** on $\Omega$ is a function $x: \Omega \to \mathcal C$, where the **feature space** $\mathcal C$ is typically $\mathbb{R}^k$ or $\mathbb{C}^k$. The set of all signals is a vector space $\mathcal X(\Omega, \mathcal C)$. We often consider **functions on signals**, i.e. maps $f: \mathcal X(\Omega,\mathcal C) \to \mathcal Y$.
+
+## 2. Geometric Priors
+
+### 2.1 Symmetry: Groups, Actions and Representations
+
+#### Groups
+
+A **group** $(\mathcal G, \cdot)$ is a set with an associative binary operation $\cdot$ and an identity element $e$, where each element $g$ has an inverse $g^{-1}$. Examples include the additive group $\mathbb{Z}$ (integer shifts), cyclic groups, or continuous groups like the rotation group $\mathrm{SO}(2)$.
+
+Often a group is described using **generators** $\gamma_1,\dots,\gamma_r$: every $g \in \mathcal G$ can be written as a product of generators and their inverses.
+
+#### Group Actions and Representations
+
+A **group action** of $\mathcal G$ on a domain $\Omega$ is a map $\cdot: \mathcal G\times\Omega \to \Omega$ such that $g\cdot(h\cdot u) = (gh)\cdot u$ and $e\cdot u = u$. For a fixed $g$, the action $g\cdot: \Omega \to \Omega$ is a **permutation** (or transformation) of the domain.
+
+The action can be **induced on signals**: given $x: \Omega\to\mathcal C$, define $(g \cdot x)(u) := x(g^{-1}\cdot u)$. The group thus acts linearly on the signal space. A map $\rho: \mathcal G\to \mathrm{GL}(\mathcal X)$ that assigns to each $g$ a linear operator $\rho(g)$ is called a **representation**.
+
+#### Invariance and Equivariance
+
+A function $f: \mathcal X(\Omega,\mathcal C) \to \mathcal Y$ is **invariant** to the action if $f(g\cdot x) = f(x)$ for all $g \in \mathcal G$. It is **equivariant** if $f(g\cdot x) = g\cdot f(x)$ for all $g$. Invariants reduce to constant outputs under symmetry, while equivariants transform in the same way as the input. Examples:
+
+·       **Shift invariance**: classification of digits should be unchanged under translations. A CNN with global pooling yields a translation‑invariant output.
+
+·       **Shift equivariance**: feature maps in a CNN shift when the input image shifts because convolution commutes with translation.
+
+Equivariance reduces the function’s degrees of freedom and fosters **weight sharing**: the same filter is reused across the domain.
+
+#### Isomorphisms and Automorphisms
+
+An **isomorphism** between two domains $\Omega$ and $\Omega'$ is a bijection that preserves some structure (e.g. connectivity). An **automorphism** is an isomorphism from $\Omega$ to itself; the set of automorphisms forms the **symmetry group** of $\Omega$. When we enrich the domain with additional structure—topology, smoothness, metric—the automorphism group shrinks. For example, adding a grid adjacency structure reduces the continuous translation symmetry of $\mathbb{R}^2$ to discrete shifts.
+
+### 2.2 Deformation Stability
+
+In the real world, exact symmetries rarely hold. We require not only that a model respect symmetry but also that it be **stable to small deformations**. Given a small deformation $\tau: \Omega \to \Omega$ with cost $c(\tau)$, a stable model $f$ satisfies
+
+$$ \|f(\tau\circ x) - f(x)\| \leq \epsilon + C\,c(\tau), $$
+
+where $C$ is a constant and $\epsilon$ vanishes in the limit of infinite resolution. For images, $c(\tau)$ can be measured by the **Dirichlet energy** of the deformation—integrating the squared gradient of $\tau$. When the domain itself changes (e.g. comparing two different meshes), we need a notion of distance between domains $d(\Omega,\widetilde \Omega)$ and require
+
+$$ \|f(x) - f(\tilde x)\| \leq C\bigl(d(\Omega,\widetilde \Omega) + \|x-\tilde x\|\bigr). $$
+
+This expresses _continuity with respect to the domain_.
+
+### 2.3 Scale Separation
+
+Exact convolution in the Fourier domain uses global basis functions like exponentials. These are poor at capturing localised patterns and unstable under deformations. **Wavelet transforms** decompose functions into localised, multi‑scale basis functions (dilated and translated mother wavelets). Wavelet representations achieve stability: small deformations of the input produce changes of order $O(\epsilon)$ in the wavelet coefficients.
+
+**Scale separation** posits that many functions of interest can be approximated by composing _local_ functions acting on coarse‑grained versions of the input. In networks, this is implemented by stacking local filters (small receptive fields) and progressively down‑sampling, forming hierarchical representations akin to multiscale wavelet decompositions.
+
+## 3. Blueprint for Geometric Deep Learning
+
+The GDL blueprint identifies four generic components that, when composed, can approximate any continuous $G$‑invariant function:
+
+1.      **Local linear equivariant layers**: apply a linear operator that is equivariant to the group action (e.g. convolution) on neighbourhoods. On grids these are convolutional filters; on graphs they are neighbourhood aggregations; on groups they are group convolutions.
+
+2.      **Pointwise non‑linearities**: apply an activation function $\sigma$ independently to each feature value, e.g. ReLU. This is $G$‑equivariant because it does not mix locations.
+
+3.      **Pooling or coarsening**: down‑sample the domain to build multiscale features, analogous to wavelet decompositions; can be implemented via subsampling, spectral projection or other clustering.
+
+4.      **Global invariant aggregation**: reduce the feature map to an invariant output (e.g. summing or averaging all features) for tasks such as classification.
+
+This blueprint underlies many neural network architectures. Differences arise from the choice of domain, group, neighbourhood structure and pooling mechanism.
+
+## 4. Geometric Domains and Symmetry Groups
+
+The authors categorise domains by their symmetry groups into five “5Gs”: **graphs** (permutation symmetries), **grids** (translation symmetries), **groups** (general Lie groups like rotations), **geodesics/manifolds** (continuous domains with intrinsic metrics), and **gauges** (fields on bundles). Each has associated neural‑network models.
+
+### 4.1 Graphs and Sets
+
+A **graph** $G=(V,E)$ comprises nodes $V$ and edges $E$. A **set** is a special case where no edge structure is given (all permutations are symmetries). The symmetry group is the permutation group $\mathfrak S_{|V|}$: relabeling nodes should not change the function’s value. A **graph signal** assigns features to nodes. Graph **functions** aggregate features from neighboring nodes using the adjacency. A function on sets must be **permutation invariant or equivariant**. A permutation‑equivariant linear layer can be expressed as
+
+$$ (f(x))_i = \sum_\,x_j, $$
+where $A$ is a function of the adjacency and is the same for all nodes. For sets (no adjacency), $A_{ij}$ reduces to a constant coefficient for $i=j$ and a constant for $i\neq j$, leading to **Deep Sets** architectures.
+
+On graphs, local equivariant functions operate on neighborhoods. **Graph Neural Networks** (GNNs) implement these operations by aggregating messages from adjacent nodes.
+
+#### Graph Neural Network Variants
+
+1.      **Convolutional GNNs**: Use fixed weighting of neighbours analogous to spectral filters or random walk operators. The layer update is $$x_i' = \phi\Bigl(x_i,\, \sum_{j \in \mathcal N(i)} w_{ij} x_j\Bigr),$$ where $w_{ij}$ depend on the adjacency and $\phi$ is a nonlinearity.
+
+2.      **Attentional GNNs**: Learn attention coefficients $\alpha_{ij}$ that weight neighbours based on their features. The update becomes $x_i' = \sigma\bigl(\sum_{j\in\mathcal N(i)} \alpha_{ij} W x_j\bigr)$.
+
+3.      **Message Passing Neural Networks**: Compute messages $m_{ij} = \psi(x_i,x_j)$ on each edge and update by aggregating them, $x_i' = \phi\bigl(x_i, \sum_{j\in\mathcal N(i)} m_{ij}\bigr)$. This general form encompasses many GNN variants.
+
+### 4.2 Grids (Euclidean Domains)
+
+A one‑dimensional **grid** $\mathbb Z_n$ or a two‑dimensional image grid is a set of evenly spaced points with translation symmetry. The adjacency is defined by nearest neighbours. The **shift group** acts by translating indices: $(T_s x)(i) = x(i-s)$. Matrices that commute with the shift are **circulant** matrices; they represent discrete convolutions. The **discrete convolution** of a signal $x$ with a kernel $\theta$ is
+
+$$ (x*\theta)(i) = \sum_j \theta(j)\,x(i-j), $$
+
+which is a shift‑equivariant linear operator. According to the **convolution theorem**, circulant matrices are diagonalised by the discrete Fourier transform (DFT). This explains the efficiency of FFT‑based filtering.
+
+### 4.3 Groups and Homogeneous Spaces
+
+Beyond translations, images may possess rotational or reflectional symmetry. A **homogeneous space** $\Omega$ is a space where a group $\mathcal G$ acts transitively: for any $u,v\in\Omega$ there exists $g$ such that $g\cdot u = v$. Examples include the sphere $S^2$ as a homogeneous space of $\mathrm{SO}(3)$, and the planar torus as a homogeneous space of translations.
+
+A **group convolution** generalises discrete convolution: given a signal $x: \mathcal G\to\mathbb R$ and a filter $\theta: \mathcal G\to\mathbb R$, the convolution is
+
+$$ (x*\theta)(g) = \int_{h\in\mathcal G} x(h)\,\theta(h^{-1}g)\,dh = \langle x,\rho(g)\theta\rangle, $$
+
+where $\rho(g)$ is the right‑regular representation. This operation is equivariant to left shifts: $L_k(x_\theta) = (L_k x)_\theta$, where $(L_k x)(g) = x(k^{-1}g)$. On the sphere, **spherical convolution** (used in **Spherical CNNs**) performs convolution over rotations and yields functions on $\mathrm{SO}(3)$. To stack layers one must handle functions on the group; this leads to **group equivariant networks**.
+
+### 4.4 Manifolds and Geodesics
+
+A **manifold** is a space that locally resembles Euclidean space. An $n$‑dimensional manifold $\Omega$ has an atlas of coordinate charts $\{(U_i,\phi_i)\}$ where $\phi_i:U_i\to\mathbb R^n$; transition maps between charts are smooth. At each point $u$ there is a **tangent space** $T_u\Omega$ spanned by tangent vectors. A **Riemannian metric** assigns inner products on these tangent spaces, leading to intrinsic distances and the **Laplace–Beltrami operator**. Functions on manifolds can be processed using **manifold wavelets**, **manifold scattering transforms** or **intrinsic convolutions**. For example, on a mesh, diffusion operators and Laplacians capture the geometry.
+
+### 4.5 Gauges and Fibre Bundles
+
+Many signals carry orientation or direction—think of vector fields or orientation channels in images. These are modelled by **vector bundles**: each point $u\in\Omega$ has an associated fibre (e.g. vectors in a tangent space). Choosing a basis in each fibre is called selecting a **gauge**. Under a **gauge transformation**, bases change by an element of a **structure group** $\mathcal G_u$ that can vary over the domain. A function is **gauge equivariant** if its output transforms accordingly under gauge changes. Gauge equivariance generalises group equivariance to fields defined over bundles and underlies **Gauge Equivariant CNNs** and **gauge equivariant GNNs**.
+
+## 5. Neural Network Architectures
+
+### 5.1 Convolutional Neural Networks (CNNs)
+
+A **Convolutional Neural Network** processes images (2D grids) with translation‑equivariant convolutions. For a 2D signal $x:\mathbb Z^2\to\mathbb R^k$ and a filter $\theta:\mathbb Z^2\to\mathbb R^{k\times k'}$, the discrete convolution is
+
+$$ (x*\theta)(i,j) = \sum_{m,n} \theta(m,n)\,x(i-m, j-n). $$
+
+Multiple **channels** allow stacking features: each filter maps from $k$ input channels to $k'$ output channels. After the linear convolution, a **pointwise non‑linearity** such as ReLU is applied. **Pooling** (e.g. max pooling or average pooling) aggregates values within local windows, reduces resolution, and provides deformation stability. CNNs thus realise the GDL blueprint with translation symmetry.
+
+### 5.2 Group Equivariant Convolutional Networks
+
+**Group Equivariant CNNs** generalise CNNs to larger groups (rotations, reflections). The domain is a group $\mathcal G$ or a homogeneous space $\Omega$. A **group convolution** uses a filter defined on the group, and outputs a function on the group. Stacking such layers yields features that are equivariant to group actions. On the sphere, **Spherical CNNs** use rotation group convolutions to achieve rotational equivariance. **LieConv** and related models implement equivariance to continuous Lie groups.
+
+### 5.3 Graph Neural Networks and Deep Sets
+
+For sets, the fundamental invariant operator is the sum. Given features $x_i\in \mathbb R^k$ on a set of size $n$, a **Deep Sets** architecture computes
+
+$$ f(x_1,\dots,x_n) = \rho\Bigl(\sum_{i=1}^n \phi(x_i)\Bigr), $$
+
+which is permutation invariant. $\phi$ and $\rho$ are learned functions.
+
+For graphs, GNNs implement the blueprint with the permutation group. In a **Graph Convolutional Network**, a layer update is
+
+$$ X' = \sigma\bigl( A X W \bigr), $$
+
+where $A$ is a normalised adjacency matrix (possibly with self‑loops), $X\in\mathbb R^{|V|\times k}$ are node features, $W$ is a weight matrix, and $\sigma$ is a nonlinearity. **Graph Attention Networks** compute attention coefficients $\alpha_{ij}$ from $x_i$ and $x_j$ and form a weighted sum. **Message Passing Neural Networks** use a message function $\psi$ and an aggregation function $\phi$, generalising many GNNs.
+
+### 5.4 Gauge Equivariant Networks
+
+On manifolds or general spaces, **gauge equivariant networks** process signals that are sections of bundles (e.g. tangent vector fields). Each point has its own local frame; under a gauge transformation (rotation of frames) the components transform by an element of the structure group. A gauge equivariant layer uses **kernels defined in the tangent spaces** and aligns them under parallel transport or connection to ensure equivariance. This yields networks capable of processing vector and tensor fields on curved surfaces.
+
+## 6. Explanation of Key ML Terms
+
+Below are some ML concepts appearing in the paper:
+
+·       **Representation Learning**: learning useful features automatically from data. In GDL, representations respect geometry and symmetries.
+
+·       **Gradient Descent**: iterative optimisation technique to minimise a loss function by updating parameters in the direction of negative gradient.
+
+·       **Activation Function**: non‑linear function (e.g. ReLU $\sigma(z) = \max(0,z)$) applied element‑wise to introduce nonlinearity.
+
+·       **Pooling**: reduction of spatial resolution by aggregating local neighbourhoods (max or average pooling).
+
+·       **Overfitting**: model memorises training data but fails to generalise. Inductive biases like symmetries help reduce overfitting.
+
+·       **Generalisation**: ability of a model to perform well on unseen data. Priors and regularisation aid generalisation.
+
+·       **Multi‑scale**: processing data at multiple resolutions. Implemented via pooling or wavelet transforms.
+
+·       **Equivariance vs. Invariance**: equivariant layers commute with transformations; invariant layers yield outputs unaffected by transformations.
+
+·       **Fourier Transform**: decomposes signals into global sinusoidal modes; convolution theorem states convolution corresponds to pointwise multiplication in the Fourier domain.
+
+·       **Wavelet Transform**: decomposes signals into localised, dilated and translated wavelets to capture multi‑scale structure.
+
+## 7. Concluding Remarks
+
+The Geometric Deep Learning framework provides a **mathematical language** for understanding and unifying modern neural networks. By explicitly modelling **symmetry, scale, and domain structure**, GDL yields architectures that are expressive yet efficient. CNNs, GNNs, Deep Sets, Group Equivariant Networks and Gauge Equivariant Networks can all be derived from the same blueprint with different choices of domain and group. This perspective encourages the design of new architectures for data on complex domains—meshes, manifolds, physical fields—and offers theoretical tools (deformation stability, scale separation) to analyse their performance. Future work may further explore **non‑Euclidean harmonic analysis**, **learnable group actions**, and **dynamic domains**, pushing geometric deep learning into broader applications.
+
+---
