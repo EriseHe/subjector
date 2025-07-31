@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "contents/docs/lacanian-psychoanalysis/desire/index.mdx",
+                "file": "contents/docs/lacanian-psychoanalysis/reframe/index.mdx",
                 "mode": "source",
                 "source": false
               },
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7968cae204f6e906",
@@ -170,18 +171,20 @@
   },
   "active": "82f2619300c04627",
   "lastOpenFiles": [
+    "contents/docs/lacanian-psychoanalysis/index.mdx",
+    "contents/docs/geometric-deep-learning/index.mdx",
+    "contents/docs/Lacanian Psychoanalysis/index.mdx",
+    "contents/docs/lacanian-psychoanalysis/reframe/index.mdx",
+    "contents/docs/lacanian-psychoanalysis/mirror-stage/index.mdx",
+    "contents/docs/lacanian-psychoanalysis/reframe/draft.md",
+    "contents/docs/lacanian-psychoanalysis/desire/index.mdx",
+    "contents/docs/lacanian-psychoanalysis/reframe",
+    "contents/docs/lacanian-psychoanalysis/mirror-stage",
+    "contents/docs/lacanian-psychoanalysis/desire",
+    "contents/docs/lacanian-psychoanalysis",
+    "contents/docs/geometric-deep-learning",
     "contents/docs/Lacanian Psychoanalysis/reframe/draft.md",
     "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
-    "contents/docs/Lacanian Psychoanalysis/desire/index.mdx",
-    "contents/docs/Lacanian Psychoanalysis/mirror-stage/index.mdx",
-    "contents/docs/Lacanian Psychoanalysis/reframe/index.mdx",
-    "contents/docs/Lacanian Psychoanalysis/desire",
-    "contents/docs/Lacanian Psychoanalysis/mirror-stage",
-    "contents/docs/Lacanian Psychoanalysis/reframe",
-    "contents/docs/Subjector/design/index.mdx",
-    "contents/docs/Subjector/design",
-    "contents/docs/Subjector/index.mdx",
-    "contents/docs/Geometric Deep Learning/index.mdx",
     "contents/docs/Lacanian Psychoanalysis/0. draft.md",
     "contents/docs/Lacanian Psychoanalysis/0.Reframing Lacanian Topology as Computational Architecture.md"
   ]
