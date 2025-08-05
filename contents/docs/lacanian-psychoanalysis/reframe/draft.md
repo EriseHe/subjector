@@ -8,16 +8,9 @@
 
 The obscurity cultivated in Lacan’s psychoanalysis has often been criticized.  As Malcolm Bowie famously observes, “[Lacan] … contrives to suggest that a supreme obviousness is at work beneath the busy textures of his writing.” One of his most controversial move was his deployment of topology, which was commonly regarded as cited without grounding their relevance with the human psyche.
 
-Many commentators point out that his turn from structural linguistics to his penchant for algebraic “mathemes” often produce a theory too abstract to apply consistently in a clinical setting. Instead of a practical guidance, the introduction of topology was perhaps intended to raise his theory to the dignity of the mathematics through a monolithic pyscho - topology framework. However, all too often, his cited topological concepts feels more obstructive than illuminating. The density of Lacan’s construction make it nearly impossible to extract an empirically testable hypothesis. modern psychology and neuroscience 
-
+Many commentators point out that his turn from structural linguistics to his penchant for algebraic “mathemes” often produce a theory too abstract to apply consistently in a clinical setting. Instead of a practical guidance, the introduction of topology was perhaps intended to raise his theory to the dignity of the mathematics through a monolithic pyscho-topology framework. However, all too often, his cited topological concepts feels more obstructive than illuminating. The density of Lacan’s construction make it nearly impossible to extract an empirically testable hypothesis. 
 
 Lacan’s insistence on the “symbolic” order, for example, producing a primordial gap (the manque) relies on a highly theory‐laden language game, but offers no straightforward way to verify—through observation or measurement—where that gap “is,” or how it manifests concretely during analysis. In clinical practice, this can yield widely differing interpretations of *exactly* where—and why—lack is operative, which allows virtually any clinical observation to be retroactively fitted into Lacan’s schema. 
-
-
-all too often
-Even psychoanalysts well versed in mathematics find his theory esoteric.
-
-----
 
 However, these methodological impasses can be weighted if we step outside the strict clinical context in which the theory originated, but re-conceive psychoanalysis not primarily as a clinical protocol but as a structural paradigm in which the subject is modeled analogously to a computational system. This way, it need not remain locked behind its hermetic mathemes. In other words, if Lacanian psychoanalysis can be rendered computationally tractable for system design—while preserving, or at least approximating, the original conceptual intent—then the question of “where and why” becomes an engineering decision, not a metaphysical one. 
 
