@@ -11,14 +11,10 @@
             "id": "82f2619300c04627",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "contents/docs/lacanian-psychoanalysis/reframe/index.mdx",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "index"
+              "title": "New tab"
             }
           }
         ]
@@ -164,23 +160,26 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "templates:Insert template": false
     }
   },
-  "active": "82f2619300c04627",
+  "active": "ce61d6ca169e2a29",
   "lastOpenFiles": [
-    "contents/docs/lacanian-psychoanalysis/index.mdx",
+    "contents/docs/lacanian-psychoanalysis/reframe/index.mdx",
     "contents/docs/lacanian-psychoanalysis/reframe/index.mdx",
     "contents/docs/lacanian-psychoanalysis/reframe/draft.md",
-    "contents/docs/geometric-deep-learning/index.mdx",
-    "contents/docs/Lacanian Psychoanalysis/index.mdx",
     "contents/docs/lacanian-psychoanalysis/mirror-stage/index.mdx",
     "contents/docs/lacanian-psychoanalysis/desire/index.mdx",
-    "contents/docs/lacanian-psychoanalysis/reframe",
-    "contents/docs/lacanian-psychoanalysis/mirror-stage",
-    "contents/docs/lacanian-psychoanalysis/desire",
-    "contents/docs/lacanian-psychoanalysis",
+    "contents/docs/markdown/tabs/index.mdx",
+    "contents/docs/markdown/table/index.mdx",
+    "contents/docs/markdown/steps/index.mdx",
+    "contents/docs/markdown/notes/index.mdx",
+    "contents/docs/markdown/maths/index.mdx",
+    "contents/docs/markdown/lists/index.mdx",
+    "contents/docs/markdown/filetree/index.mdx",
+    "contents/docs/topo-book/度量理论.md",
+    "contents/docs/lacanian-psychoanalysis/reframe/draft.md",
     "contents/docs/Lacanian Psychoanalysis/reframe/draft.md",
     "contents/docs/Lacanian Psychoanalysis/3. Subject.md",
     "contents/docs/Lacanian Psychoanalysis/0. draft.md",

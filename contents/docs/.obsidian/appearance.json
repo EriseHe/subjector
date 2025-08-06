@@ -1,1 +1,14 @@
-{}
+{
+  "theme": "system",
+  "accentColor": "",
+  "textFontFamily": "NewComputerModern10",
+  "translucency": true,
+  "cssTheme": "AnuPpuccin",
+  "baseFontSize": 20,
+  "baseFontSizeAction": true,
+  "interfaceFontFamily": "",
+  "monospaceFontFamily": "NewComputerModern10",
+  "showViewHeader": true,
+  "enabledCssSnippets": [],
+  "showRibbon": true
+}
